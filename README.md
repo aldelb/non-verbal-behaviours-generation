@@ -1,16 +1,16 @@
 # Automatic facial expressions, gaze direction and head movements generation of a virtual agent
 
-The code contains two models to jointly and automatically generate the head, facial and gaze movements (non-verbal beahviours) of a virtual agent from acoustic speech features. Two architectures are explored: a Generative Adversarial Network and an Adversarial Encoder-Decoder. Head movements and gaze orientation are generated as 3D coordinates, while facial expressions are generated using action units based on the facial action coding system. 
+The code contains two models to jointly and automatically generate the head, facial and gaze movements (non-verbal behaviours) of a virtual agent from acoustic speech features. Two architectures are explored: a Generative Adversarial Network and an Adversarial Encoder-Decoder. Head movements and gaze orientation are generated as 3D coordinates, while facial expressions are generated using action units based on the facial action coding system. 
 
 ## Example
 
-![A simple sample for wgan on TAKEKUCHI dataset](docs/example.gif)
+![A simple sample](docs/example.gif)
 
 The sound is not added to this gif. To see more examples go [here](https://www.youtube.com/channel/UCCds0WJg3qbwYtUKSjKJqzw/featured) (there are videos animated with ground truth, CGAN model, AED model, ED model).
 
 ## To reproduce
 1. Clone the repository
-2. In a conda console, execute 'conda env create -f environment.yml' to create the right conda environment. Go in the project location.
+2. In a conda console, execute 'conda env create -f environment.yml' to create the right conda environment. Go to the project location.
 
 ### Data and features extraction 
 We extract the speech and visual features automatically from these videos using existing tools. You can also directly recover the extracted and align features with the next section.
@@ -36,20 +36,20 @@ data
 You can also directly recover the extracted and align features.
 
 1. Create a directory './data/mosi_data' and inside it, a directory "Features".
-2. Download the files found in [this drive](https://drive.google.com/drive/folders/1ZEV_I7qQTPlKRULAZ90Nf6P9C7yU6rQZ?usp=sharing) and place them in the repository "Features".
+2. Download files found in [this drive](https://drive.google.com/drive/folders/1ZEV_I7qQTPlKRULAZ90Nf6P9C7yU6rQZ?usp=sharing) and place them in the repository "Features".
 
 ### Models training
 1. In the directory "generation", you will find "params.cfg". 
-It is the configuration file to customize the model before training. 
-To learn what section need to be change go see [the configuration file](docs/config_file.md).
+It is the configuration file to customise the model before training. 
+To learn what section needs to be change go see [the configuration file](docs/config_file.md).
 2. You can conserve the existing file or create a new one. 
 3. In the conda console, train the model by executing "python train.py -params PATH/TO/CONFIG/FILE.cfg [-id NAME_OF_MODEL]"
-You can visualize the created graphics during training in the repository "generation/saved_models" or the one put in "saved_path" in the configuration file. 
+You can visualise the created graphics during training in the repository "generation/saved_models" or the one put in "saved_path" in the configuration file. 
 
 ### Behaviours generation
-1. In the conda console, generate behaviours by executing "python generation/generate.py -epoch [integer] -params PATH/TO/CONFIG/FILE.cfg -dataset mosi". The behavious are generated in the form of 3D coordinates and intensity of facial action units. These are csv files stored in the directory "generation/data/output/MODEL_PATH" or the one put in "output_path" in the configuration file.
+1. In the conda console, generate behaviours by executing "python generation/generate.py -epoch [integer] -params PATH/TO/CONFIG/FILE.cfg -dataset mosi". The behaviours are generated in the form of 3D coordinates and intensity of facial action units. These are csv files stored in the directory "generation/data/output/MODEL_PATH" or the one put in "output_path" in the configuration file.
 
-- -epoch : during training, if you trained on 100 epochs, recording every 10 epochs, you must enter a number within [10;20;30;40;50;60;70;80;90;99].
+- -epoch : during training, if you trained in 100 epochs, recording every 10 epochs, you must enter a number within [10;20;30;40;50;60;70;80;90;99].
 - -params : path to the config file. 
 - -dataset : name of the considered dataset. 
 
@@ -61,17 +61,17 @@ and a visualisation from PCA reduction.
 
 - -epoch : during training, if you trained on 100 epochs, recording every 10 epochs, you must enter a number within [10;20;30;40;50;60;70;80;90;99]. You must perform the generation before the evaluation. 
 - -params : path to the config file. 
-- -bandwith : parameter bandwith for the kernel density estimation. 
+- -bandwith : parameter bandwidth for the kernel density estimation. 
 
 You will find the results in the directory "generation/evaluation" or the one put in "evaluation_path" in the configuration file.
 
 ### Data post-processing (smoothing)
 1. To smooth the generated behaviours, open the file "post_processing/smoothing.py" and change the variable "dirs" by the name of the directory that contains the generated behaviours in csv files. For example "generation/data/output/27-07-2022_mosi_2/epoch_9/".
 
-2. In the conda console, to smooth data execute "python post_processing/smoothing.py false". "true" if you want to visualize the effect of smoothing in graph, "false" otherwise. 
+2. In the conda console, to smooth data execute "python post_processing/smoothing.py false". "true" if you want to visualise the effect of smoothing in graph, "false" otherwise. 
 
 ### Animate the generated behaviours
-To animate a virtual agent with the generated behaviours, we use the GRETA plateform. 
+To animate a virtual agent with the generated behaviours, we use the GRETA platform. 
 
 1. Download and install GRETA with "gpl-grimaldi-release.7z" at https://github.com/isir/greta/releases/tag/v1.0.1.
 2. Open GRETA. Open the configuration "Greta - Record AU.xml" already present GRETA. 
