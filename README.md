@@ -2,6 +2,12 @@
 
 The code contains two models to jointly and automatically generate the head, facial and gaze movements (non-verbal beahviours) of a virtual agent from acoustic speech features. Two architectures are explored: a Generative Adversarial Network and an Adversarial Encoder-Decoder. Head movements and gaze orientation are generated as 3D coordinates, while facial expressions are generated using action units based on the facial action coding system. 
 
+## Example
+
+![A simple sample for wgan on TAKEKUCHI dataset](docs/example.gif)
+
+The sound is not added to this gif. To see more examples go [here](https://www.youtube.com/channel/UCCds0WJg3qbwYtUKSjKJqzw/featured) (there are videos animated with ground truth, CGAN model, AED model, ED model).
+
 ## To reproduce
 1. Clone the repository
 2. In a conda console, execute 'conda env create -f environment.yml' to create the right conda environment. Go in the project location.
