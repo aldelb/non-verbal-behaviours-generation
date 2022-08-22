@@ -101,3 +101,6 @@ Concatenate the created sound and the video:
 ```
 ffmpeg -i WAV_FILE_PITCH_CHANGE.wav -i VIDEO_FILE.avi -c copy -map 1:v:0 -map 0:a:0 OUTPUT.avi
 ```
+
+### Contact
+For any questions, please contact alice.delbosc@etu.univ-amu.fr
