@@ -206,14 +206,14 @@ def main():
     duration = {}
     videos_to_transform = standard_fold.standard_train_fold + standard_fold.standard_valid_fold + standard_fold.standard_test_fold
 
-    # duration = create_audio_csd(audio_path, audio_csd_path, videos_to_transform)
-    # print("*"*10, "audio csd created", "*"*10)
+    duration = create_audio_csd(audio_path, audio_csd_path, videos_to_transform)
+    print("*"*10, "audio csd created", "*"*10)
 
-    # create_visual_csd(duration, visual_path, visual_csd_path, videos_to_transform)
-    # print("*"*10, "visual csd created", "*"*10)
+    create_visual_csd(duration, visual_path, visual_csd_path, videos_to_transform)
+    print("*"*10, "visual csd created", "*"*10)
 
-    # create_label_csd(duration, visual_path, label_csd_path, videos_to_transform)
-    # print("*"*10, "label csd created", "*"*10)
+    create_label_csd(duration, visual_path, label_csd_path, videos_to_transform)
+    print("*"*10, "label csd created", "*"*10)
 
     dataset = create_align_dataset(label_csd_path, audio_csd_path, visual_csd_path, align_csd_path)
     print("*"*10, "visual and audio features aligned", "*"*10)
