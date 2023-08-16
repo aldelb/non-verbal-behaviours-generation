@@ -101,3 +101,17 @@ Concatenate the created sound and the video:
 ```
 ffmpeg -i WAV_FILE_PITCH_CHANGE.wav -i VIDEO_FILE.avi -c copy -map 1:v:0 -map 0:a:0 OUTPUT.avi
 ```
+### Citing
+If you use this code in your research please cite it:
+```
+@inproceedings{delbosc2022automatic,
+  title={Automatic facial expressions, gaze direction and head movements generation of a virtual agent},
+  author={Delbosc, Alice and Ochs, Magalie and Ayache, Stephane},
+  booktitle={Companion Publication of the 2022 International Conference on Multimodal Interaction},
+  pages={79--88},
+  year={2022}
+}
+```
+
+Contact
+alice.delbosc@lis-lab.fr
